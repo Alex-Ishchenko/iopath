@@ -750,7 +750,7 @@ class HTTPURLHandler(PathHandler):
             dirname = os.path.join(
                 get_cache_dir(), os.path.dirname(parsed_url.path.lstrip("/"))
             )
-            filename = path.split("/")[-1]
+            filename = parsed_url.path.split("/")[-1]
             cached = os.path.join(dirname, filename)
             with file_lock(cached):
                 if not os.path.isfile(cached):
